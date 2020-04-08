@@ -168,6 +168,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function ThankYou() {
+  document.body.style.backgroundImage = "url(/Squeeze.jpg)";
+  document.body.style.backgroundPosition = "center";
+  document.body.style.backgroundSize = "cover";
+
+
   const [toThankYou, setToThankYou] = useState(false);
   const classes = useStyles();
 
@@ -204,7 +209,7 @@ function ThankYou() {
                 <FormControl fullWidth>
                   <TextField id="name"  name="name"  label="Enter your name nere" className={classes.bigishInput}/>
                   <TextField id="email" name="email" label="Enter your email address" className={classes.bigishInput} />
-                  <Button type="submit" className={classes.bigishInput, classes.button}>Yes, SIGN ME UP!</Button>
+                  <Button type="submit" className={[classes.bigishInput, classes.button]}>Yes, SIGN ME UP!</Button>
                 </FormControl>
               </form>
             </Grid>
