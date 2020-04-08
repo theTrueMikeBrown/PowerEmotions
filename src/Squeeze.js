@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import './SqueezeGlobal.css';
 import { Grid, Box, TextField, FormControl, Button } from '@material-ui/core';
@@ -104,7 +105,7 @@ const useStyles = makeStyles(theme => ({
     padding: '1em',
     paddingTop: '1em',
     position: 'relative',
-    [theme.breakpoints.up(700)]: { 
+    [theme.breakpoints.up(800)]: { 
       paddingTop: '3em',
     },
   },
@@ -130,6 +131,15 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up(700)]: { 
       paddingBottom: '3em',
     },
+  },
+
+  foo: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  foo2: {
+    maxHeight: '400px'
   },
 
   footer:
@@ -158,7 +168,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function ThankYou() {
+  const [toThankYou, setToThankYou] = useState(false);
   const classes = useStyles();
+
+  if (toThankYou === true) {
+    return <Redirect to='/thank-you' />
+  }
 
   return (
     <div className={classes.container}>
@@ -168,8 +183,8 @@ function ThankYou() {
         <div className={classes.title}>THE <b>REAL SECRET</b> TO SPENDING ALL DAY WITH YOUR KIDS <b>AND STAYING SANE</b></div>
         <div className={classes.box}>
           <Grid container style={{margin: 0, width: '100%',}} justify="space-around">
-            <Grid item xs={12} sm={6}>
-              <Box component={Grid} className={classes.gridItem} item xs={12} display={{ xs: "none", sm: "block" }}>
+            <Grid item xs={12} sm={6} className={classes.foo}>
+              <Box component={Grid} className={classes.foo2} item xs={12} display={{ xs: "none", sm: "block" }}>
                 <img src="SqueezeImage.jpg" className={classes.image} alt="" tabIndex="0" />
               </Box>            
             </Grid>
@@ -177,11 +192,21 @@ function ThankYou() {
               <div className={classes.headline}>
                 Join the <b>FREE Jumpstart</b> and unlock your emotional superpowers to <b><u>connect with your kids!</u></b>
               </div>
-              <FormControl fullWidth>
-                <TextField id="name-text-field" label="Enter your name nere" className={classes.bigishInput}/>
-                <TextField id="email-text-field" label="Enter your email address" className={classes.bigishInput} />
-                <Button className={classes.bigishInput, classes.button}>Yes, SIGN ME UP!</Button>
-              </FormControl>
+              <form name="submit-to-google-sheet"
+                onSubmit={(e) => {
+                  const scriptURL = 'https://script.google.com/macros/s/AKfycbwKuMfr_qpnM7vb6K2YF8GnrdGEkiRegLJSjdSkmDRZb47Nu-XR/exec'
+                  const form = document.forms['submit-to-google-sheet']
+                  e.preventDefault()
+                    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                      .then(response => setToThankYou(true))
+                      .catch(error => console.error('Error!', error.message));
+              }}>
+                <FormControl fullWidth>
+                  <TextField id="name"  name="name"  label="Enter your name nere" className={classes.bigishInput}/>
+                  <TextField id="email" name="email" label="Enter your email address" className={classes.bigishInput} />
+                  <Button type="submit" className={classes.bigishInput, classes.button}>Yes, SIGN ME UP!</Button>
+                </FormControl>
+              </form>
             </Grid>
           </Grid>
         </div>
@@ -193,25 +218,3 @@ function ThankYou() {
 }
 
 export default ThankYou;
-
-/*      <div className={classes.innerBox}>
-          <div className={classes.innererBox}>
-            <div className={classes.imageWrapper}>
-              <div className={classes.imageInnerWrapper}>
-                <div className={classes.imageInnererWrapper}>
-                  <img src="SqueezeImage.jpg" className={classes.image} alt="" height="400" tabIndex="0" />
-                </div>
-              </div>
-            </div>
-            <div className={classes.textWrapper}>
-              <div className={classes.textInnerWrapper}>
-                <div className={classes.textInnererWrapper}>
-                  <div className={classes.headline}>
-                    Join the <b>FREE Jumpstart</b> and unlock your emotional superpowers to <b><u>connect with your kids!</u></b>
-                  </div>
-                </div>
-              </div>
-            </div>            
-          </div>
-        </div>
- */
