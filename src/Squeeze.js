@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import './SqueezeGlobal.css';
-import { Grid, Box, TextField, FormControl, Button } from '@material-ui/core';
+import { Grid, Box, TextField, FormControl, Button, Link } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({ 
   container: {    
@@ -176,7 +176,9 @@ function ThankYou() {
   const [toThankYou, setToThankYou] = useState(false);
   const classes = useStyles();
 
+  var fbq = window.fbq || (() => {});
   if (toThankYou === true) {
+    fbq('track', 'CompleteRegistration');
     return <Redirect to='/thank-you' />
   }
 
@@ -216,7 +218,7 @@ function ThankYou() {
           </Grid>
         </div>
         <div className={classes.content}></div>
-        <div className={classes.footer}><b>AlisonPBrown.com</b><span> - All Rights Reserved - </span><span>Terms &amp; Conditions</span></div>
+        <div className={classes.footer}><b>AlisonPBrown.com</b><span> - All Rights Reserved - </span><span><Link href="/privacy-policy">Privacy Policy</Link></span></div>
       </div>
     </div>
   );

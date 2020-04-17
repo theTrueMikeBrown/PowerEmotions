@@ -1,6 +1,7 @@
 import React from 'react';
 import ThankYou from './ThankYou';
 import Squeeze from './Squeeze';
+import PrivacyPolicy from './PrivacyPolicy';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -18,6 +19,9 @@ export default function App() {
         </Route>
         <Route path="/thank-you">
           <ThankYou />
+        </Route>
+        <Route path="/privacy-policy">
+          <PrivacyPolicy />
         </Route>
         <Route path="/">
           <Home />

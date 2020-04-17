@@ -1,0 +1,14 @@
+pre {  
+  color: black;
+  text-align: left;
+  white-space: pre-wrap;
+  display: inline-block;
+  max-width: 75em;
+  padding-top: 2em;
+}
+
+.preHolder {
+  padding-top: 3em;
+  text-align: center;
+  width: 100%;
+}
