@@ -1,6 +1,7 @@
 import React from 'react';
 import ThankYou from './ThankYou';
-import Squeeze from './Squeeze';
+import {Squeeze} from './Squeeze';
+import {Funnel} from './Funnel';
 import PrivacyPolicy from './PrivacyPolicy';
 import './App.css';
 import {
@@ -14,11 +15,14 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/squeeze">
+        <Route path="/frustration-free-jumpstart">
           <Squeeze />
         </Route>
         <Route path="/thank-you">
           <ThankYou />
+        </Route>
+        <Route path="/funnel">
+          <Funnel />
         </Route>
         <Route path="/privacy-policy">
           <PrivacyPolicy />
@@ -32,5 +36,5 @@ export default function App() {
 }
 
 function Home() {
-  return <Redirect to='/squeeze' />;
+  return <Redirect to='/frustration-free-jumpstart' />;
 }

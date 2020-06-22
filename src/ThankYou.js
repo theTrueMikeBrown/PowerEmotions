@@ -6,7 +6,7 @@ import { Button } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({ 
   title:
   {
-    fontFamily: 'Poppins, Helvetica, sans-serif',
+    fontFamily: 'Lora, Poppins, Helvetica, sans-serif',
     fontSize: '1.5em',
     fontWeight: '500',
     letterSpacing: '.05em',
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     }
   },  
   text: {    
-    fontFamily: 'Poppins, Helvetica, sans-serif',
+    fontFamily: 'Lora, Poppins, Helvetica, sans-serif',
     fontSize: '1.25em',
     fontWeight: '500',
     letterSpacing: '.05em',
@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => ({
   },
   closing:
   {
-    fontFamily: '"Libre Baskerville italic", Helvetica, sans-serif',
+    fontFamily: 'Lora, "Libre Baskerville italic", Helvetica, sans-serif',
     fontSize: '1em',
     fontWeight: '700',
     letterSpacing: '.15em',
@@ -67,7 +67,7 @@ const useStyles = makeStyles(theme => ({
   footer:
   {
     display: 'block',
-    fontFamily: 'Poppins, Helvetica, sans-serif',
+    fontFamily: 'Lora, Poppins, Helvetica, sans-serif',
     fontSize: '1em',
     marginTop: '1.25em',
     marginBottom: '.25em',
