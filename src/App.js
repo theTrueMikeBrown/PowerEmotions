@@ -1,6 +1,8 @@
 import React from 'react';
 import ThankYou from './ThankYou';
+import {Results} from './Results';
 import {Squeeze} from './Squeeze';
+import {Quiz} from './Quiz';
 import {Funnel} from './Funnel';
 import PrivacyPolicy from './PrivacyPolicy';
 import './App.css';
@@ -26,6 +28,12 @@ export default function App() {
         </Route>
         <Route path="/privacy-policy">
           <PrivacyPolicy />
+        </Route>
+        <Route path="/quiz">
+          <Quiz />
+        </Route>
+        <Route path="/results/:id">
+          <Results />
         </Route>
         <Route path="/">
           <Home />

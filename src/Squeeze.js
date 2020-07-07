@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
       height: '2em',
     },
   },
-  firstBox:
+  topBox:
   {
     fontFamily: "Lora, 'Playfair Display', serif",
     outline: 'none',
@@ -233,7 +233,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
 
-  secondBox: {
+  lifeChangerBox: {
     backgroundColor: 'white',
     color: 'black',
     padding: '.5em',
@@ -322,7 +322,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
   },
   
-  thirdBox:
+  hostBox:
   {
     fontFamily: "Lora, 'Playfair Display', serif",
     outline: 'none',
@@ -418,6 +418,26 @@ const useStyles = makeStyles(theme => ({
   },
   link: {
     color: 'cornflowerblue'
+  },
+
+  TwoColumns: {
+    display: 'flex',
+    flexFlow: 'row wrap'
+  },
+  column: {
+    margin: '1em',
+    flex: '50%',
+    [theme.breakpoints.up(700)]: { 
+      flex: '45%'
+    },
+  },
+
+  testimonialsBox: {
+    marginTop: '1.5em',
+    marginBottom: '1em'
+  },
+  testimonial: {
+    maxWidth: '100%'
   }
 }));
 
@@ -437,7 +457,7 @@ export function Squeeze() {
   return (
     <div className={classes.container}>
       <div className={classes.page}>
-        <div className={classes.firstBox} id="firstBox">
+        <div className={classes.topBox} id="topBox">
           <Grid container style={{margin: 0, width: '100%',}} justify="space-around">
             <Grid item xs={12} sm={5} className={classes.imageContainer}>
               <Box component={Grid} className={classes.imageInnerContainer} item xs={12} display={{ xs: "none", sm: "block" }}>
@@ -450,7 +470,7 @@ export function Squeeze() {
                 <div className={clsx(classes.purple, classes.title)}>Frustration-Free Parenting Jumpstart</div>
                 <div className={classes.headline}>Walk away knowing how to transform "that moment" (when your kid is driving you up the wall) into <span className={clsx(classes.pink, classes.emphasis)}>smiles</span> and <span className={clsx(classes.pink, classes.emphasis)}>connection</span>, and toss the parenting guilt for good!</div>
                 <div className={clsx(classes.pinkBanner, classes.purple)}>This jumpstart will be held...</div>
-                <div className={clsx(classes.purple, classes.date)}>April 27 - May 1, 2020</div>
+                <div className={clsx(classes.purple, classes.date)}>July 13 - 17, 2020</div>
               </div>
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -477,7 +497,7 @@ export function Squeeze() {
             </Box>            
           </Grid>
         </div>
-        <div className={classes.secondBox}>
+        <div className={classes.lifeChangerBox}>
           <div className={classes.leadIn2}>Imagine yourself working WITH your natural emotional responses - instead of supressing them - to have the energy, desire, and enthusiasm that you NEED to transform your parenting.</div>
           <div className={classes.title2}>Here Are Three Ways This Jumpstart Will Change Your Life:</div>          
           <Grid container style={{margin: 0, width: '100%',}} justify="space-around">
@@ -494,14 +514,30 @@ export function Squeeze() {
               <div className={clsx(classes.itemText, classes.cyan)}>My Specific System to <em>Put You In Complete Emotional Control</em> during the most challenging moments of your day, so that you can stop tiptoeing around your child's responses.</div>
             </Grid>
           </Grid>
-          <Button className={classes.bigishInputButton} href="#firstBox">
+          <Button className={classes.bigishInputButton} href="#topBox">
             <div className={classes.columnHolder}>
               <div>I'm ready to change!</div>
               <small className={classes.subText2}>Sign Up Now</small>
             </div>
           </Button>
         </div>
-        <div className={classes.thirdBox}>
+
+        <div className={classes.testimonialsBox}>
+          <h1>Testimonials</h1>
+          <div className={classes.TwoColumns}>
+            <div className={classes.column}><img className={classes.testimonial} src="t4.jpg"/></div>
+            <div className={classes.column}><img className={classes.testimonial} src="t5.jpg"/></div>
+          </div>
+          <div className={classes.TwoColumns}>
+            <div className={classes.column}><img className={classes.testimonial} src="t3.jpg"/></div>
+          </div>
+          <div className={classes.TwoColumns}>
+            <div className={classes.column}><img className={classes.testimonial} src="t1.jpg"/></div>
+            <div className={classes.column}><img className={classes.testimonial} src="t2.jpg"/></div>
+          </div>
+        </div>
+
+        <div className={classes.hostBox}>
           <div className={classes.leadIn3}>About your host:</div>
           <img src="hostPicture.png" className={classes.hostPicture} />
           <div className={classes.title3}>Hi, I'm Alison.</div>
@@ -515,7 +551,7 @@ export function Squeeze() {
           with them, instead of being drained by it.</div>
           <div className={classes.text3}>If you're ready for the same transformation, now is the time! Join me for this FREE five-day jumpstart. You'll walk
           away with the skills to handle the emotional upheavals of parenting (the kids' and your own) with energy, confidence, and love.</div>          
-          <Button className={classes.bigishInputButton} href="#firstBox">
+          <Button className={classes.bigishInputButton} href="#topBox">
             <div className={classes.columnHolder}>
               <div>Are you ready?</div>
               <small className={classes.subText2}>Sign Up Now</small>
