@@ -281,8 +281,6 @@ export function Quiz() {
   const handleQ11Change = (event) => { setQ11Value(event.target.value); };
   const handleQ12Change = (event) => { setQ12Value(event.target.value); };
 
-  var fbq = window.fbq || (() => {});
-
   const handleSubmit = (event) => {
     event.preventDefault()
     let avoidantScore = parseInt(q1Value || "3") + parseInt(q5Value || "3") + parseInt(q9Value || "3")
@@ -314,8 +312,7 @@ export function Quiz() {
     let data = new FormData(form);
     data.append('responsetype', targetPage)
     fetch(scriptURL, { method: 'POST', body: data})
-      .then(response => {        
-        fbq('track', 'CompleteRegistration');
+      .then(response => {      
         setTargetPage(targetPage);
         setToResults(true);
       })

@@ -204,16 +204,25 @@ export function Results() {
   var type = location.pathname.substring(9);
   let groupLink = "https://www.facebook.com/groups/poweremotions";
 
+  var fbq = window.fbq || (() => {});
   let videos = {
     Angry: "https://www.youtube.com/embed/HaVATeH1cXA",
     Avoidant: "https://www.youtube.com/embed/F4ci4IBFhvk",
     Busy: "https://www.youtube.com/embed/-8iNxUs-eUc",
     Worrier: "https://www.youtube.com/embed/n7vmw5rgNLc",
   };
+    
+  const handleJoin = (event) => {
+     event.preventDefault()      
+     fbq('track', 'CompleteRegistration');
+
+     window.location.href = groupLink;
+  };
 
   var start = (<><div className="video-container"><iframe src={videos[type]} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe></div>
   <div className={classes.upperButtonWrapper}><Button
           href={groupLink}
+          onClick={handleJoin}
           variant="contained"
           color="primary"
           className={classes.button}>Join now</Button></div>
@@ -254,11 +263,15 @@ export function Results() {
       <div className={classes.text}>Next week - <span className={classes.bold}>July 13-17</span> -</div>
       <div className={classes.text}>I’m offering <span className={classes.bold}>FREE training and group coaching</span></div>
       <div className={classes.buildUp}>to help you <span className={classes.italic}>transform your anger and enjoy your kids.</span></div>
-      <div className={classes.text}>Come join my free program, <span className={classes.bold}>How to Train Your Anger Dragon</span>, in my Facebook group: <a href={groupLink}>{groupLink}</a></div>
+      <div className={classes.text}>
+        Come join my free program, <span className={classes.bold}>How to Train Your Anger Dragon</span>, in my Facebook group: 
+        <a onClick={handleJoin} href={groupLink}>{groupLink}</a>
+      </div>
       <div className={classes.text}>I’ll see you there!</div>
       <div className={classes.text}>Alison</div>
       <Button
           href={groupLink}
+          onClick={handleJoin}
           variant="contained"
           color="primary"
           className={classes.button}>Join now</Button>

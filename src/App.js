@@ -2,6 +2,7 @@ import React from 'react';
 import ThankYou from './ThankYou';
 import {Results} from './Results';
 import {Squeeze} from './Squeeze';
+import {Sales} from './Sales';
 import {Quiz} from './Quiz';
 import {Funnel} from './Funnel';
 import PrivacyPolicy from './PrivacyPolicy';
@@ -31,6 +32,9 @@ export default function App() {
         </Route>
         <Route path="/quiz">
           <Quiz />
+        </Route>
+        <Route path="/sales">
+          <Sales />
         </Route>
         <Route path="/results/:id">
           <Results />
