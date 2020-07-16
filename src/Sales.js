@@ -29,6 +29,25 @@ const useStyles = makeStyles(theme => ({
       boxShadow: 'inset 0px 0px 0px 10px #003, inset 0px 0px 0px 12px #fff'
     }
   },
+  small:{
+    fontSize: '.75em',
+  },
+  article: {
+  },  
+  info: {
+    border: '1px solid black',
+    marginLeft: '1em',
+    padding: '1em',
+    width: '10em',
+    float: 'right',
+    backgroundColor: '#202',
+    background: "url('SalesBackground.jpg')",
+    color: 'white',
+    boxShadow: 'inset 0px 0px 0px 10px #003, inset 0px 0px 0px 12px #fff',
+    [theme.breakpoints.up(1000)]: { 
+      width: '15em',
+    },
+  },  
   whiteBox: {
     backgroundColor: '#fff8',
     padding: '.5em',
@@ -57,7 +76,7 @@ const useStyles = makeStyles(theme => ({
   full:{
     padding: '.25em',
     textAlign: 'left',
-    [theme.breakpoints.up(700)]: { 
+    [theme.breakpoints.up(1000)]: { 
       textAlign: 'justify',
     },
   },
