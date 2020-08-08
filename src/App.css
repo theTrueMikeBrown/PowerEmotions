@@ -3,7 +3,6 @@ html
   background-color: rgba(95, 85, 82, 0);
   color: #fff;
   overflow: initial;
-  font-family: Poppins, Helvetica, sans-serif !important;
   background-size: cover !important;
   -webkit-background-size: cover !important;
   background-attachment: fixed !important;
@@ -77,6 +76,16 @@ body
        url('/librebaskerville-italic-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face{
+  font-family:"Futura-LT-W01-Book";
+  src:url("/Futura-LT-W01-Book.eot?#iefix");
+  src:url("/Futura-LT-W01-Book.eot?#iefix") format("eot"),
+  url("/Futura-LT-W01-Book.woff2") format("woff2"),
+  url("/Futura-LT-W01-Book.woff") format("woff"),
+  url("/Futura-LT-W01-Book.ttf") format("truetype"),
+  url("/Futura-LT-W01-Book.svg") format("svg");
 }
 
 #root .MuiInput-underline:before {

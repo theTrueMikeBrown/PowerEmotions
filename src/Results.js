@@ -260,7 +260,7 @@ export function Results() {
       <div className={classes.text}></div>
       <div className={classes.title4}>Want some help with your superpower?</div>
       <div className={classes.aside}>I’ve got just the thing!</div>
-      <div className={classes.text}>Next week - <span className={classes.bold}>July 13-17</span> -</div>
+      <div className={classes.text}>On the week of <span className={classes.bold}>August 24-28</span>, 2020</div>
       <div className={classes.text}>I’m offering <span className={classes.bold}>FREE training and group coaching</span></div>
       <div className={classes.buildUp}>to help you <span className={classes.italic}>transform your anger and enjoy your kids.</span></div>
       <div className={classes.text}>

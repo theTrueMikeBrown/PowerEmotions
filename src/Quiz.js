@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
-import './SqueezeGlobal.css';
-import { RadioGroup, TextField, FormControlLabel, FormLabel, FormControl, Radio, Button, Link } from '@material-ui/core';
+import './Quiz.css';
+import { RadioGroup, TextField, FormControlLabel, FormLabel, FormControl, Radio, Button, Link, Grid, Box } from '@material-ui/core';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({ 
   helperText: {
@@ -50,20 +51,20 @@ const useStyles = makeStyles(theme => ({
   leadIn:
   {
     fontStyle: 'italic',
-    fontSize: '1.25em',
+    fontSize: '1.1em',
     letterSpacing: '.1em',
     fontWeight: '600',
     textSizeAdjust: '95%',
     paddingBottom: '.5em',
     [theme.breakpoints.up(1000)]: { 
-      paddingTop: '1em'
+      paddingTop: '0.1em'
     },
     [theme.breakpoints.up(1100)]: { 
-      paddingTop: '2.5em'
+      paddingTop: '0.25em'
     },
     [theme.breakpoints.up(700)]: { 
       textSizeAdjust: '100%',
-      fontSize: '1.75em',
+      fontSize: '1.5em',
     },
   },
   
@@ -181,7 +182,9 @@ const useStyles = makeStyles(theme => ({
     },
   },
 
-  topBox: {    
+  
+  topBox:
+  {
     fontFamily: "Lora, 'Playfair Display', serif",
     outline: 'none',
 
@@ -248,12 +251,113 @@ const useStyles = makeStyles(theme => ({
     color: 'cornflowerblue'
   },
 
+  hidden: {
+    display:'none'
+  },
+  title:
+  {
+    fontSize: '1.5em',
+    fontWeight: '900',    
+    textSizeAdjust: '100%',
+    paddingTop: '0em',
+    padding: '.25em',
+    [theme.breakpoints.up(700)]: { 
+      fontSize: '2.3em !important',
+      paddingLeft: '2em',
+      paddingRight: '2em',
+    },
+    [theme.breakpoints.up(325)]: { 
+      fontSize: '2em !important',
+      padding: '.5em',
+      paddingTop: '.1em',
+    },
+  },  
+  headline: {
+    color: 'rgb(45, 45, 45)',
+    fontSize: '.9em',
+    fontWeight: '600',
+    lineHeight: '1.5em',
+    marginBottom: '0px',
+    paddingTop: '.1em',
+    padding: '.5em',
+    position: 'relative',
+    [theme.breakpoints.up(1000)]: { 
+      paddingTop: '1em',
+    },
+    [theme.breakpoints.up(700)]: { 
+      paddingTop: '.5em',
+      padding: '1em',
+      fontSize: '1.1em',
+    },
+    [theme.breakpoints.up(325)]: { 
+      paddingTop: '.25em',
+      padding: '.75em',
+      fontSize: '1em',
+    },
+  },
+  superWhiteBox: {
+    borderRadius: '1em',
+    background: 'rgba(255,255,255,.5)'
+  },  
+  whiteBox: {    
+    height: '100%',
+  },
+  imageContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  imageInnerContainer: {
+    maxHeight: '400px',
+    marginLeft: '-5px',
+  },
+
+  innerBox: {
+    width: '1170px',
+    maxWidth: '100%',
+    marginRight: 'auto',
+    marginLeft: 'auto',
+  },
+  innererBox: {    
+    margin: '0px auto',
+    outline: 'none',
+    width: '90%',
+    maxWidth: '100%',
+    padding: '35px 20px 40px',
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+    boxSizing:'border-box',
+    lineHeight:'20px',
+  },
+  image: {
+    borderRadius: '.5em',
+    maxWidth: '100%',
+    maxHeight: '300px',
+    boxSizing: 'border-box',
+    verticalAlign: 'middle',
+    marginBottom: '1em',
+    padding: '0px',
+
+    maskImage: 'linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 0) 100%)',
+
+    [theme.breakpoints.up(700)]: { 
+      maxHeight: '400px',
+      padding: '0px',
+    },
+  },
+
+  perhapsHidden:{
+    '&::placeholder-shown': {
+      visibility: 'hidden',
+   }
+  },
+
 }));
 
 export function Quiz() {
   document.body.style.backgroundImage = "url(/Squeeze.jpg)";
   const [toResults, setToResults] = useState(false);
   const [targetPage, setTargetPage] = useState('Avoidant');
+  const [quizOpen, setQuizOpen] = useState(false);
   const classes = useStyles();
   const [q1Value, setQ1Value] = React.useState('');
   const [q2Value, setQ2Value] = React.useState('');
@@ -330,16 +434,44 @@ export function Quiz() {
   return (
     <div className={classes.container}>
       <div className={classes.page}>
-        <div className={classes.topBox}>
-          <div className={classes.welcome}>Welcome!</div>
-          <div className={classes.leadIn}>When you know your Stress Response Type, you can learn how to use your natural stress-busting SUPERPOWER to relax, feel confident, and enjoy time with your kids!</div>
-          <div className={classes.spacer}></div>
+        <div className={quizOpen ? classes.hidden : classes.topBox}>
+        <Grid container className={classes.superWhiteBox} style={{margin: 0, width: '100%',}} justify="space-around">
+            <Grid item xs={12} sm={5} className={classes.imageContainer}>
+              <Box component={Grid} className={classes.imageInnerContainer} item xs={12} display={{ xs: "none", sm: "block" }}>                
+                <img src="superMom.png" className={classes.image} alt="" tabIndex="0" />
+              </Box>            
+            </Grid>
+            <Grid item xs={12} sm={7} className={classes.signUp}>
+              <div className={classes.whiteBox}>
+                <div className={clsx(classes.pink, classes.leadIn)}>Access your Stress-Busting Superpower!</div>                
+                <div className={clsx(classes.purple, classes.title)}>WHAT IS YOUR STRESS RESPONSE TYPE?</div>
+                <div className={classes.headline}>Becoming aware of how you respond to stress is the first step in my Power Emotions system for enjoying motherhood. This quiz shines a light on your stress response.</div>
+                <div className={classes.headline}>To make real changes, you’ll need to develop your Superpower. I’ll give you the resources you need to do that through email and in my free Power Emotions Facebook group.</div>
+                <div className={classes.headline}>Enter your information below to get started:</div>
+                <form name="submit-to-google-sheet"
+                  onSubmit={(e) => {
+                    e.preventDefault()
+                    document.getElementById("bottomEmail").value = document.getElementById("email").value;
+                    document.getElementById("bottomName").value = document.getElementById("name").value;
+                    setQuizOpen(true);
+                  }}>
+                  <FormControl fullWidth>
+                    <TextField id="name"  name="name" label="Name" className={classes.bigishInput} required/>
+                    <TextField id="email" name="email" type="email" label="Email address" className={classes.bigishInput} required />
+                    <Button type="submit" className={classes.bigishInputButton}>I’m Ready!</Button>
+                  </FormControl>
+                </form>
+              </div>
+            </Grid>
+          </Grid>
+        </div>
+        <div className={quizOpen ? classes.quizBox : classes.hidden}>
           <div className={classes.leadIn2}>For each statement, think about how you react under stress. Mark how well the statement matches your reactions: </div>
           <div className={classes.leadIn3}>1 = Nope, I’ve never responded to stress that way.</div>
           <div className={classes.leadIn3}>5 = Oh, wow, that is exactly what I do when I’m stressed!</div>
-        </div>
-        <div className={classes.quizBox}>
-        
+          <div className={classes.spacer}>&nbsp;</div>
+          <div className={classes.spacer}>&nbsp;</div>
+    
           <div className={classes.subtitle}>START</div>
           <div className={classes.spacer}></div>
 
@@ -464,12 +596,8 @@ export function Quiz() {
                 <FormControlLabel value="5" control={<Radio />} label="5" className={classes.last} />
               </RadioGroup>
             </FormControl>
-            <FormControl fullWidth>
-              <TextField id="name" name="name"  label="Name" className={classes.bigishInput} required/>
-            </FormControl>
-            <FormControl fullWidth>
-              <TextField id="email" name="email" label="Email address" className={classes.bigishInput} required />
-            </FormControl>
+            <TextField id="bottomName" name="name" type="hidden" /> 
+            <TextField id="bottomEmail" name="email" type="hidden" />
             <FormControl>
               <Button className={classes.bigishInputButton} type="submit">
                 <div className={classes.columnHolder}>

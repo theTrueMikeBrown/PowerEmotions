@@ -7,16 +7,17 @@ import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({ 
   pink: {
-    color: '#c04899',
+    color: '#C04D9B',
   },
   purple: {
-    color: '#8224e3',
+    color: '#BA89EC',
   },
   cyan: {    
     color: '#44c4d7',
   },
   emphasis: {
     textTransform: 'uppercase',
+    fontWeight: '700'
   },
   container: {
     minHeight: '100%',
@@ -25,6 +26,8 @@ const useStyles = makeStyles(theme => ({
   page: {    
     margin: '0 auto',
     maxWidth: '1200px',
+    fontFamily: 'futura-lt-w01-book, sans-serif',
+    color: '#571897',
   },
   hr:
   {
@@ -42,7 +45,6 @@ const useStyles = makeStyles(theme => ({
   },
   topBox:
   {
-    fontFamily: "Lora, 'Playfair Display', serif",
     outline: 'none',
     backgroundColor: 'rgb(255, 255, 255)',
     backgroundImage: 'url(Background.jpg)',
@@ -61,7 +63,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
   },
   imageInnerContainer: {
-    maxHeight: '400px'
+    maxHeight: '600px'
   },
 
   innerBox: {
@@ -82,19 +84,13 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     maxWidth: '100%',
-    maxHeight: '300px',
+    maxHeight: '700px',
     boxSizing: 'border-box',
     verticalAlign: 'middle',
-    border: '.5em solid #8224e3',
-    borderRadius: '.75em',
-    boxShadow: '0 0 0 .1em #ceb9da',
     marginBottom: '1em',
     padding: '0px',
     [theme.breakpoints.up(700)]: { 
-      maxHeight: '400px',
-      border: '1em solid #8224e3',
-      borderRadius: '1.5em',
-      boxShadow: '0 0 0 .25em #ceb9da',
+      maxHeight: '800px',
       padding: '0px',
     },
   },
@@ -102,10 +98,10 @@ const useStyles = makeStyles(theme => ({
   
   leadIn:
   {
-    fontStyle: 'italic',
-    fontSize: '1em',
+    color: '#A594AE',
+    fontWeight: '700',
+    fontSize: '1.25em',
     letterSpacing: '.1em',
-    fontWeight: '600',
     textSizeAdjust: '95%',
     [theme.breakpoints.up(1000)]: { 
       paddingTop: '1em'
@@ -115,25 +111,25 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.up(700)]: { 
       textSizeAdjust: '100%',
-      fontSize: '1.25em',
+      fontSize: '1.5em',
     },
   },
   title:
   {
-    fontSize: '1.5em',
-    fontWeight: '900',    
+    fontSize: '2.25em',
+    fontWeight: '700',    
     textSizeAdjust: '100%',
     paddingTop: '0em',
     padding: '.25em',
     [theme.breakpoints.up(700)]: { 
-      fontSize: '2.3em !important',
+      fontSize: '2.75em !important',
       paddingLeft: '2em',
       paddingRight: '2em',
     },
     [theme.breakpoints.up(325)]: { 
-      fontSize: '2em !important',
+      fontSize: '2.5em !important',
       padding: '.5em',
-      paddingTop: '.1em',
+      paddingTop: '1em',
     },
   },  
   signUp: {
@@ -145,9 +141,9 @@ const useStyles = makeStyles(theme => ({
   },
 
   headline: {
-    color: 'rgb(45, 45, 45)',
-    fontSize: '1.1em',
-    fontWeight: '600',
+    color: '#571897',
+    fontSize: '1.5em',
+    fontWeight: '400',
     lineHeight: '1.5em',
     marginBottom: '0px',
     paddingTop: '.1em',
@@ -159,39 +155,66 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up(700)]: { 
       paddingTop: '.5em',
       padding: '1em',
-      fontSize: '1.4em',
+      fontSize: '2em',
     },
     [theme.breakpoints.up(325)]: { 
       paddingTop: '.25em',
       padding: '.75em',
-      fontSize: '1.2em',
+      fontSize: '1.75em',
+    },
+  },
+
+  afterText: {
+    color: 'rgb(128, 51, 103)',
+    fontSize: '.75em',
+    fontWeight: '700',
+    lineHeight: '1.5em',
+    marginBottom: '0px',
+    paddingTop: '.1em',
+    padding: '.5em',
+    position: 'relative',
+    [theme.breakpoints.up(1000)]: { 
+      paddingTop: '1em',
+    },
+    [theme.breakpoints.up(700)]: { 
+      paddingTop: '.5em',
+      padding: '1em',
+      fontSize: '1.25em',
+    },
+    [theme.breakpoints.up(325)]: { 
+      paddingTop: '.25em',
+      padding: '.75em',
+      fontSize: '1em',
     },
   },
 
   pinkBanner: {
-    background: 'rgba(192,72,153,.2)',
-    fontSize: '1.25em',
+    background: 'rgba(186,137,236)',
+    color: '#fffcc2',
+    fontSize: '1.5em',
     fontWeight: '800',
-    padding: '.5em',
+    padding: '0',
     marginBottom: '.5em',
+    width: 'auto',
     [theme.breakpoints.up(700)]: { 
       marginRight: '.5em',
       marginLeft: '.5em',
-      fontSize: '2em',
+      fontSize: '2.25em',
     },
     [theme.breakpoints.up(325)]: { 
-      fontSize: '1.4em',
+      fontSize: '1.75em',
     },
   },
 
   date:{
-    fontSize: '1.25em',
+    fontSize: '2.25em',
     marginBottom: '1em',
+    fontWeight: '700',
     [theme.breakpoints.up(700)]: { 
-      fontSize: '1.75em',
+      fontSize: '2.75em',
     },
     [theme.breakpoints.up(325)]: { 
-      fontSize: '1.5em',
+      fontSize: '2.5em',
     },
 
   },
@@ -199,30 +222,31 @@ const useStyles = makeStyles(theme => ({
   bigishInput: {
     marginRight: '1em',
     marginLeft: '1em',
+    fontSize: '1.25em',
   },
   
   bigishInputButton: {
     color: 'rgb(45, 45, 45)',
-    backgroundColor: '#ffbd59',
+    backgroundColor: 'rgba(235, 171, 190, 1)',
     borderRadius: '.5em',
     textDecoration: 'none',
-    marginRight: '20%',
-    marginLeft: '20%',
+    marginRight: '.5em',
+    marginLeft: '.5em',
     marginTop: '.5em',
     marginBottom: '.5em',
     paddingRight: '.5em',
     paddingLeft: '.5em',
     fontWeight: '800',
-    fontFamily: "Lora, 'Playfair Display', serif",
     fontSize: '1.25em',
+    fontFamily: 'futura-lt-w01-book, sans-serif !important',
     '&:hover': {
       backgroundColor: '#df9d39'
     },
     [theme.breakpoints.up(700)]: { 
-      fontSize: '2em',
+      fontSize: '2.5em',
     },
     [theme.breakpoints.up(325)]: { 
-      fontSize: '1.5em',
+      fontSize: '2.25em',
     },
   },
 
@@ -459,36 +483,35 @@ export function Squeeze() {
       <div className={classes.page}>
         <div className={classes.topBox} id="topBox">
           <Grid container style={{margin: 0, width: '100%',}} justify="space-around">
-            <Grid item xs={12} sm={5} className={classes.imageContainer}>
+            <Grid item xs={12} sm={7} className={classes.imageContainer}>
               <Box component={Grid} className={classes.imageInnerContainer} item xs={12} display={{ xs: "none", sm: "block" }}>
-                <img src="SqueezeImage.transparent.png" className={classes.image} alt="" tabIndex="0" />
+                <img src="SqueezeImage.3.jpg" className={classes.image} alt="" tabIndex="0" />
               </Box>            
             </Grid>
-            <Grid item xs={12} sm={7} className={classes.signUp}>
+            <Grid item xs={12} sm={5} className={classes.signUp}>
               <div className={classes.whiteBox}>
-                <div className={clsx(classes.pink, classes.leadIn)}>Free Live Challenge</div>                
-                <div className={clsx(classes.purple, classes.title)}>Frustration-Free Parenting Jumpstart</div>
-                <div className={classes.headline}>Walk away knowing how to transform "that moment" (when your kid is driving you up the wall) into <span className={clsx(classes.pink, classes.emphasis)}>smiles</span> and <span className={clsx(classes.pink, classes.emphasis)}>connection</span>, and toss the parenting guilt for good!</div>
-                <div className={clsx(classes.pinkBanner, classes.purple)}>This jumpstart will be held...</div>
-                <div className={clsx(classes.purple, classes.date)}>July 13 - 17, 2020</div>
+                <div className={clsx(classes.gray, classes.leadIn)}>FREE LIVE CHALLENGE</div>                
+                <div className={clsx(classes.purple, classes.title)}>HOW TO TRAIN YOUR ANGER DRAGON</div>
+                <div className={classes.headline}>TRANSFORM A FRUSTRATING DAILY EXPERIENCE INTO A MOMENT OF <span className={clsx(classes.pink, classes.emphasis)}>LOVE</span> AND <span className={clsx(classes.pink, classes.emphasis)}>CONNECTION</span>.</div>
+                <div className={clsx(classes.pinkBanner, classes.purple)}>THIS CHALLENGE WILL BE HELD...</div>
+                <div className={clsx(classes.date)}>August 24 - 28, 2020</div>
+                <form name="submit-to-google-sheet"
+                    onSubmit={(e) => {
+                      const scriptURL = 'https://script.google.com/macros/s/AKfycbzUlcRsgLhNmkbiHYEGAN50lWuH96LpPzHewcSYy0JY3cv1MVyR/exec'                                       
+                      const form = document.forms['submit-to-google-sheet']
+                      e.preventDefault()
+                        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                          .then(response => { setToThankYou(true) })
+                          .catch(error => console.error('Error!', error.message));
+                  }}>
+                    <FormControl fullWidth>
+                      <TextField id="name"  name="name"  label="Your name here..." className={classes.bigishInput}/>
+                      <TextField id="email" name="email" label="Your email address here..." className={classes.bigishInput} />
+                      <Button type="submit" className={classes.bigishInputButton}>GIVE ME THE CALM!</Button>
+                    </FormControl>
+                </form>
+                <div className={clsx(classes.afterText)}>JOIN THE FREE PROGRAM</div>                
               </div>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <form name="submit-to-google-sheet"
-                  onSubmit={(e) => {
-                    const scriptURL = 'https://script.google.com/macros/s/AKfycbzUlcRsgLhNmkbiHYEGAN50lWuH96LpPzHewcSYy0JY3cv1MVyR/exec'                                       
-                    const form = document.forms['submit-to-google-sheet']
-                    e.preventDefault()
-                      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                        .then(response => { setToThankYou(true) })
-                        .catch(error => console.error('Error!', error.message));
-                }}>
-                  <FormControl fullWidth>
-                    <TextField id="name"  name="name"  label="Name" className={classes.bigishInput}/>
-                    <TextField id="email" name="email" label="Email address" className={classes.bigishInput} />
-                    <Button type="submit" className={classes.bigishInputButton}>SIGN ME UP!</Button>
-                  </FormControl>
-              </form>
             </Grid>
           </Grid>
           <Grid className={classes.imageContainer}>

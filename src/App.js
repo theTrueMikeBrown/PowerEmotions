@@ -36,6 +36,12 @@ export default function App() {
         <Route path="/sales">
           <Sales />
         </Route>
+        <Route path="/transformingmotherhood">
+          <Sales />
+        </Route>
+        <Route path="/transforming-motherhood">
+          <Sales />
+        </Route>
         <Route path="/results/:id">
           <Results />
         </Route>
