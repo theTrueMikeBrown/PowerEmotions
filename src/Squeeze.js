@@ -6,14 +6,8 @@ import { Grid, Box, TextField, FormControl, Button, Link } from '@material-ui/co
 import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({ 
-  pink: {
-    color: '#C04D9B',
-  },
   purple: {
-    color: '#BA89EC',
-  },
-  cyan: {    
-    color: '#44c4d7',
+    color: '#571897',
   },
   emphasis: {
     textTransform: 'uppercase',
@@ -25,45 +19,74 @@ const useStyles = makeStyles(theme => ({
   },
   page: {    
     margin: '0 auto',
-    maxWidth: '1200px',
-    fontFamily: 'futura-lt-w01-book, sans-serif',
-    color: '#571897',
+    fontFamily: 'Lora, Poppins, Helvetica, sans-serif !important',
+    color: '#000',
   },
-  hr:
-  {
-    border: '0px',
-    height: '1em',
-    display: 'block',
-    backgroundImage: 'url(\\hr.png)',
-    maxWidth: theme.spacing(82),
+  maxWidth:{    
+    maxWidth: '1300px',
+    margin: 'auto',
+  },
+  header: {
+    color: '#fff',
+    backgroundColor: 'rgba(87, 24, 151, 0.5)',
+    borderBottom: '1px rgb(87, 24, 151) solid',
+    boxShadow: '0.00px 4.00px 4px 0px rgba(87,24,151,0.6)',
+    fontSize: '1.5em',
+    padding: '.5em',
+    fontWeight: '700',
+  },
+  sticky: {
+    position: 'fixed',
+    top: '0',
     width: '100%',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: '100%',
-    [theme.breakpoints.up(700)]: { 
-      height: '2em',
-    },
+    zIndex: '1',
+    display: 'none',    
+    [theme.breakpoints.up(1000)]: {
+      display: 'block',
+    }
   },
   topBox:
   {
     outline: 'none',
     backgroundColor: 'rgb(255, 255, 255)',
-    backgroundImage: 'url(Background.jpg)',
+    backgroundImage: 'url("Transparent Background.png")',
     backgroundSize: 'cover',
-
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed',
-
+    paddingTop: '1em',
     [theme.breakpoints.up(700)]: { 
+      paddingTop: '2em',
       padding: '1.5em',
     },
+    [theme.breakpoints.up(1000)]: {
+      paddingTop: '5em',
+    }
   },
   imageContainer: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   },
+  rightImageContainer: {        
+    [theme.breakpoints.up(360)]: {
+      float: 'right',
+      paddingLeft: '1em',  
+    },
+  },
+  shrinkImage: {
+    maxWidth: '100%',
+    maxHeight: '300px',
+    boxSizing: 'border-box',
+    verticalAlign: 'middle',
+    marginBottom: '1em',
+    padding: '0px',
+    [theme.breakpoints.up(700)]: { 
+      maxHeight: '350px',
+      padding: '0px',
+    },
+  },
   imageInnerContainer: {
-    maxHeight: '600px'
+    maxHeight: '750px'
   },
 
   innerBox: {
@@ -77,20 +100,19 @@ const useStyles = makeStyles(theme => ({
     outline: 'none',
     width: '90%',
     maxWidth: '100%',
-    padding: '35px 20px 40px',
+    
     backgroundColor: 'rgba(0, 0, 0, 0)',
     boxSizing:'border-box',
-    lineHeight:'20px',
   },
   image: {
     maxWidth: '100%',
-    maxHeight: '700px',
+    maxHeight: '650px',
     boxSizing: 'border-box',
     verticalAlign: 'middle',
     marginBottom: '1em',
     padding: '0px',
     [theme.breakpoints.up(700)]: { 
-      maxHeight: '800px',
+      maxHeight: '750px',
       padding: '0px',
     },
   },
@@ -98,38 +120,42 @@ const useStyles = makeStyles(theme => ({
   
   leadIn:
   {
-    color: '#A594AE',
     fontWeight: '700',
     fontSize: '1.25em',
     letterSpacing: '.1em',
     textSizeAdjust: '95%',
-    [theme.breakpoints.up(1000)]: { 
-      paddingTop: '1em'
-    },
-    [theme.breakpoints.up(1100)]: { 
-      paddingTop: '2.5em'
-    },
     [theme.breakpoints.up(700)]: { 
       textSizeAdjust: '100%',
       fontSize: '1.5em',
     },
+    [theme.breakpoints.up(1000)]: { 
+      paddingTop: '.75em',
+      fontSize: '1.35em',
+    },
+    [theme.breakpoints.up(1100)]: { 
+      paddingTop: '2em'
+    },
   },
   title:
   {
-    fontSize: '2.25em',
+    fontSize: '2em',
     fontWeight: '700',    
     textSizeAdjust: '100%',
     paddingTop: '0em',
     padding: '.25em',
-    [theme.breakpoints.up(700)]: { 
-      fontSize: '2.75em !important',
-      paddingLeft: '2em',
-      paddingRight: '2em',
-    },
     [theme.breakpoints.up(325)]: { 
-      fontSize: '2.5em !important',
+      fontSize: '2.25em',
       padding: '.5em',
-      paddingTop: '1em',
+      paddingTop: '.75em',
+    },
+    [theme.breakpoints.up(700)]: { 
+      fontSize: '2.25em',
+      paddingLeft: '1em',
+      paddingRight: '1em',
+      paddingTop: '.5em',
+    },
+    [theme.breakpoints.up(1100)]: {
+      fontSize: '2.75em',
     },
   },  
   signUp: {
@@ -139,70 +165,56 @@ const useStyles = makeStyles(theme => ({
     background: 'rgba(255,255,255,.3)',
     height: '100%',
   },
+  transparentBox: {
+    background: 'rgba(255,255,255,0)',
+    height: '100%',
+  },
 
   headline: {
-    color: '#571897',
-    fontSize: '1.5em',
+    fontSize: '1em',
     fontWeight: '400',
     lineHeight: '1.5em',
     marginBottom: '0px',
     paddingTop: '.1em',
     padding: '.5em',
     position: 'relative',
-    [theme.breakpoints.up(1000)]: { 
-      paddingTop: '1em',
-    },
-    [theme.breakpoints.up(700)]: { 
-      paddingTop: '.5em',
-      padding: '1em',
-      fontSize: '2em',
-    },
+    maxWidth: '20em',
+    margin: 'auto',
     [theme.breakpoints.up(325)]: { 
-      paddingTop: '.25em',
       padding: '.75em',
-      fontSize: '1.75em',
-    },
-  },
-
-  afterText: {
-    color: 'rgb(128, 51, 103)',
-    fontSize: '.75em',
-    fontWeight: '700',
-    lineHeight: '1.5em',
-    marginBottom: '0px',
-    paddingTop: '.1em',
-    padding: '.5em',
-    position: 'relative',
-    [theme.breakpoints.up(1000)]: { 
-      paddingTop: '1em',
-    },
-    [theme.breakpoints.up(700)]: { 
-      paddingTop: '.5em',
-      padding: '1em',
       fontSize: '1.25em',
     },
-    [theme.breakpoints.up(325)]: { 
-      paddingTop: '.25em',
-      padding: '.75em',
-      fontSize: '1em',
+    [theme.breakpoints.up(700)]: { 
+      paddingTop: '0',
+      padding: '1em',
+      fontSize: '1.35em',
+    },
+    [theme.breakpoints.up(1100)]: {
+      paddingTop: '.5em',       
+      fontSize: '1.5em',
     },
   },
 
   pinkBanner: {
     background: 'rgba(186,137,236)',
-    color: '#fffcc2',
-    fontSize: '1.5em',
-    fontWeight: '800',
+    color: '#fff',
+    fontSize: '1.25em',
+    fontWeight: '700',
     padding: '0',
     marginBottom: '.5em',
     width: 'auto',
+    [theme.breakpoints.up(325)]: { 
+      fontSize: '1.5em',
+    },
     [theme.breakpoints.up(700)]: { 
+      marginRight: '.25em',
+      marginLeft: '.25em',
+      fontSize: '1.5em',
+    },
+    [theme.breakpoints.up(1100)]: {
+      fontSize: '2em',
       marginRight: '.5em',
       marginLeft: '.5em',
-      fontSize: '2.25em',
-    },
-    [theme.breakpoints.up(325)]: { 
-      fontSize: '1.75em',
     },
   },
 
@@ -210,13 +222,85 @@ const useStyles = makeStyles(theme => ({
     fontSize: '2.25em',
     marginBottom: '1em',
     fontWeight: '700',
-    [theme.breakpoints.up(700)]: { 
-      fontSize: '2.75em',
-    },
     [theme.breakpoints.up(325)]: { 
       fontSize: '2.5em',
     },
+    [theme.breakpoints.up(700)]: { 
+      fontSize: '2.5em',
+      marginBottom: '.25em',
+    },
+    [theme.breakpoints.up(1100)]: { 
+      fontSize: '2.75em',
+      paddingTop: '.5em',
+    },
+  },
 
+  afterText: {
+    fontSize: '.75em',
+    fontWeight: '700',
+    lineHeight: '1.5em',
+    paddingTop: '.1em',
+    padding: '.5em',
+    position: 'relative',
+    [theme.breakpoints.up(325)]: { 
+      paddingTop: '.25em',
+      padding: '.75em',
+      fontSize: '1em',
+    },
+    [theme.breakpoints.up(700)]: { 
+      paddingTop: '.5em',
+      padding: '1em',
+      fontSize: '1.25em',
+      marginBottom: '1em',
+    },
+    [theme.breakpoints.up(1000)]: {       
+      marginBottom: '2em',
+    },
+  },
+  afterText2: {
+    fontSize: '.75em',
+    fontWeight: '700',
+    lineHeight: '1.5em',
+    marginBottom: '3em',
+    paddingTop: '.1em',
+    padding: '.5em',
+    position: 'relative',
+    [theme.breakpoints.up(325)]: { 
+      paddingTop: '.25em',
+      padding: '.75em',
+      fontSize: '1em',
+    },
+    [theme.breakpoints.up(700)]: { 
+      paddingTop: '.5em',
+      marginBottom: '0',
+      padding: '1em',
+      fontSize: '1.25em',
+    },
+    [theme.breakpoints.up(1000)]: { 
+      paddingTop: '1em',
+      marginBottom: '3em',
+    },
+  },
+  afterText3: {
+    fontSize: '.75em',
+    fontWeight: '700',
+    lineHeight: '1.5em',
+    paddingTop: '.1em',
+    padding: '.5em',
+    position: 'relative',
+    [theme.breakpoints.up(325)]: { 
+      paddingTop: '.25em',
+      padding: '.75em',
+      fontSize: '1em',
+    },
+    [theme.breakpoints.up(700)]: { 
+      paddingTop: '.5em',
+      padding: '1em',
+      fontSize: '1.25em',
+    },
+    [theme.breakpoints.up(1000)]: { 
+      paddingTop: '1em',
+    },
   },
 
   bigishInput: {
@@ -226,8 +310,7 @@ const useStyles = makeStyles(theme => ({
   },
   
   bigishInputButton: {
-    color: 'rgb(45, 45, 45)',
-    backgroundColor: 'rgba(235, 171, 190, 1)',
+    backgroundColor: 'rgba(255, 217, 228, 1)',
     borderRadius: '.5em',
     textDecoration: 'none',
     marginRight: '.5em',
@@ -236,17 +319,21 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '.5em',
     paddingRight: '.5em',
     paddingLeft: '.5em',
-    fontWeight: '800',
+    fontWeight: '600',
     fontSize: '1.25em',
-    fontFamily: 'futura-lt-w01-book, sans-serif !important',
+    fontFamily: 'Lora, Poppins, Helvetica, sans-serif !important',
     '&:hover': {
-      backgroundColor: '#df9d39'
-    },
-    [theme.breakpoints.up(700)]: { 
-      fontSize: '2.5em',
+      backgroundColor: 'rgb(235, 171, 190)',
+      color: "#fff",
     },
     [theme.breakpoints.up(325)]: { 
+      fontSize: '2em',
+    },
+    [theme.breakpoints.up(700)]: { 
       fontSize: '2.25em',
+    },
+    [theme.breakpoints.up(1100)]: { 
+      fontSize: '2.5em',
     },
   },
 
@@ -259,85 +346,108 @@ const useStyles = makeStyles(theme => ({
 
   lifeChangerBox: {
     backgroundColor: 'white',
-    color: 'black',
-    padding: '.5em',
-    fontFamily: 'Lora, Poppins, Helvetica, sans-serif',
+    padding: '.5em .5em',
     [theme.breakpoints.up(700)]: { 
-      padding: '1em',
+      padding: '.5em 3em',
+    },
+    [theme.breakpoints.up(1000)]: { 
+      padding: '1em 8em',
     },
   },
   leadIn2: {
-    fontSize: '1.2em',
-    marginTop: '.5em',
-    marginBottom: '.5em',
+    fontSize: '1em',
+    marginTop: '1em',
+    marginBottom: '2em',
+    fontWeight: '800',
     [theme.breakpoints.up(700)]: { 
-      fontSize: '1.75em',
-      marginBottom: '2em',
-      marginTop: '2em',
-    },
-    [theme.breakpoints.up(325)]: { 
-      marginBottom: '1em',
-      marginTop: '.75em',
+      fontSize: '1.5em',
     },
   },
   title2: {
-    backgroundColor: '#44c4d7',
-    color: 'white',
-    fontSize: '1.25em',
+    backgroundColor: 'rgba(87, 24, 151, 0.5)',
+    border: '1px rgb(87, 24, 151) solid',
+    boxShadow: '0.00px 4.00px 4px 0px rgba(87,24,151,0.6)',
+    color: '#fff',
+    fontSize: '2em',
     fontWeight: '700',
     letterSpacing: '.1em',
-    marginLeft: '.5em',
-    marginRight: '.5em',
-    padding: '.1em',
-    paddingLeft: '.25em',
-    paddingRight: '.25em',
+    padding: '1em 3em',
     borderRadius: '.75em',
-    [theme.breakpoints.up(700)]: { 
-      paddingLeft: '2em',
-      paddingRight: '2em',
-      fontSize: '2.25em',
-    },
     [theme.breakpoints.up(325)]: { 
-      paddingLeft: '1em',
-      paddingRight: '1em',
-      fontSize: '1.5em',
+      padding: '.5em 1em',
+      fontSize: '1.25em',
+    },
+    [theme.breakpoints.up(700)]: { 
+      padding: '.5em 2em',
+      fontSize: '2em',
+    },
+    [theme.breakpoints.up(1100)]: { 
+      fontSize: '3em',
     },
   },
   subtitle2: {
-    fontSize: '1.75em',
+    fontSize: '2em',
     fontWeight: '700',
     paddingTop: '1em',
     paddingBottom: '.3em',
+    [theme.breakpoints.up(325)]: { 
+      paddingTop: '1em',
+    },
     [theme.breakpoints.up(700)]: { 
+      paddingTop: '1em',
+    },
+    [theme.breakpoints.up(1100)]: { 
       paddingTop: '2em',
       paddingBottom: '.75em',
+      fontSize: '2.25em',
     },
-    [theme.breakpoints.up(325)]: { 
-      paddingTop: '1.5em',
+  },
+  marbleTile:{
+    backgroundImage:'url(Marble.jpg)',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center center',
+    maxWidth: '24em',
+    padding: '1em',
+    marginTop: '2em',
+    lineHeight: '2.5em',
+    border: '.25em white solid',
+    [theme.breakpoints.up(1100)]: { 
+      padding: '1em',
+      marginTop: '3em',
+      lineHeight: '2.5em',
     },
   },
   itemText: {
-    fontSize: '1.25em',
-    fontFamily: "Lora, 'Playfair Display', serif",
-    fontStyle: 'italic',
-    '& em': {
-      fontWeight: '700',
-    },
+    fontSize: '1em',
+    fontWeight: '700',
     margin: '.5em',
     marginTop: '0',
     marginBottom: '.25em',
+    [theme.breakpoints.up(325)]: { 
+      fontSize: '1.25em',
+      marginBottom: '.5em',
+    },
     [theme.breakpoints.up(700)]: { 
-      fontSize: '1.75em',
       marginBottom: '2em',
     },
-    [theme.breakpoints.up(325)]: { 
-      fontSize: '1.5em',
-      marginBottom: '.5em',
+    [theme.breakpoints.up(1100)]: {
+      fontSize: '1.75em',
+    },
+  },
+  wideish: {
+    padding: '.5em',
+    fontSize: '1.5em',
+    [theme.breakpoints.up(700)]: {
+      padding: '.5em 1em',
+    },
+    [theme.breakpoints.up(1000)]: {
+      padding: '.5em 2em',
+      fontSize: '2.25em',
     },
   },
   subText2: {
     fontSize: '.6em',
-    fontStyle: 'italic',
     fontWeight: '600',
     display: 'block',
   },
@@ -348,10 +458,9 @@ const useStyles = makeStyles(theme => ({
   
   hostBox:
   {
-    fontFamily: "Lora, 'Playfair Display', serif",
     outline: 'none',
     backgroundColor: 'rgb(255, 255, 255)',
-    backgroundImage: 'url(darkBackground.jpg)',
+    backgroundImage: 'url(LightBackground.jpg)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed',
@@ -363,39 +472,39 @@ const useStyles = makeStyles(theme => ({
   },
 
   leadIn3: {
-    textAlign: 'left',
+    textAlign: 'right',
     fontWeight: '700',
     textTransform: 'uppercase',
-    fontSize: '1.5em',
-    padding: '.5em',
-    [theme.breakpoints.up(700)]: { 
-      fontSize: '2em',
-      padding: '1em',
-    },
+    fontSize: '2em',
+    letterSpacing: '0.1em',
+    paddingRight: '.5em',
     [theme.breakpoints.up(325)]: { 
-      fontSize: '1.75em',
-      padding: '.75em',
+      fontSize: '2.25em',
+    },
+    [theme.breakpoints.up(700)]: { 
+      fontSize: '2.75em',
+    },
+    [theme.breakpoints.up(1100)]: { 
+      fontSize: '3em',
     },
   },
   hostPicture: {
     maxWidth: '100%',
-    [theme.breakpoints.up(700)]: { 
-      maxWidth: '50%',
-    },
     [theme.breakpoints.up(325)]: { 
       maxWidth: '90%',
+    },
+    [theme.breakpoints.up(700)]: { 
+      maxWidth: '50%',
     },
   },
   title3: {
     fontSize: '2em',
     fontWeight: '600',
-    color: 'black',
     fontStyle: 'italic',
   },
   subtitle3: {
     fontSize: '1.8em',
     fontWeight: '600',
-    color: 'black',
     fontStyle: 'italic',
     paddingBottom: '.25em',
     [theme.breakpoints.up(700)]: { 
@@ -403,24 +512,28 @@ const useStyles = makeStyles(theme => ({
     },
   },
   text3: {
-    padding: '.5em',
+    textAlign: 'left',
+    padding: '.25em',
     fontSize: '1.2em',
-    color: 'black',
-    fontStyle: 'italic',
-    [theme.breakpoints.up(700)]: { 
-      padding: '1em',
-      fontSize: '1.53em',
-    },
     [theme.breakpoints.up(325)]: { 
-      padding: '.75em',
+      padding: '.5em',
       fontSize: '1.3em',
+    },
+    [theme.breakpoints.up(700)]: { 
+      padding: '.75em',
+      paddingBottom: '0',
+      fontSize: '1.4em',
+      paddingTop: '.5em',
+    },
+    [theme.breakpoints.up(1100)]: { 
+      padding: '.75em',
+      fontSize: '1.53em',
     },
   },
 
   footer:
   {
     display: 'block',
-    fontFamily: 'Lora, Poppins, Helvetica, sans-serif',
     fontSize: '1em',
     marginTop: '1.25em',
     marginBottom: '.25em',
@@ -441,7 +554,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   link: {
-    color: 'cornflowerblue'
+    color: '#000'
   },
 
   TwoColumns: {
@@ -455,20 +568,16 @@ const useStyles = makeStyles(theme => ({
       flex: '45%'
     },
   },
-
   testimonialsBox: {
     marginTop: '1.5em',
     marginBottom: '1em'
   },
   testimonial: {
     maxWidth: '100%'
-  }
+  },
 }));
 
 export function Squeeze() {
-  document.body.style.backgroundImage = "url(/Squeeze.jpg)";
-
-
   const [toThankYou, setToThankYou] = useState(false);
   const classes = useStyles();
 
@@ -481,18 +590,21 @@ export function Squeeze() {
   return (
     <div className={classes.container}>
       <div className={classes.page}>
+        <div className={clsx(classes.sticky, classes.header)}>
+          FREE LIVE CHALLENGE: Presented by Alison Brown - Emotional Intelligence + Parenting Specialist
+        </div>
         <div className={classes.topBox} id="topBox">
-          <Grid container style={{margin: 0, width: '100%',}} justify="space-around">
-            <Grid item xs={12} sm={7} className={classes.imageContainer}>
-              <Box component={Grid} className={classes.imageInnerContainer} item xs={12} display={{ xs: "none", sm: "block" }}>
+          <Grid container className={classes.maxWidth} justify="space-around">
+            <Grid item xs={12} md={7} className={classes.imageContainer}>
+              <Box component={Grid} className={classes.imageInnerContainer} item xs={12} display={{ xs: "none", md: "block" }}>
                 <img src="SqueezeImage.3.jpg" className={classes.image} alt="" tabIndex="0" />
               </Box>            
             </Grid>
-            <Grid item xs={12} sm={5} className={classes.signUp}>
+            <Grid item xs={12} md={5} className={classes.signUp}>
               <div className={classes.whiteBox}>
-                <div className={clsx(classes.gray, classes.leadIn)}>FREE LIVE CHALLENGE</div>                
+                <div className={clsx(classes.leadIn)}>FREE LIVE CHALLENGE</div>                
                 <div className={clsx(classes.purple, classes.title)}>HOW TO TRAIN YOUR ANGER DRAGON</div>
-                <div className={classes.headline}>TRANSFORM A FRUSTRATING DAILY EXPERIENCE INTO A MOMENT OF <span className={clsx(classes.pink, classes.emphasis)}>LOVE</span> AND <span className={clsx(classes.pink, classes.emphasis)}>CONNECTION</span>.</div>
+                <div className={clsx(classes.headline)}>TRANSFORM A FRUSTRATING DAILY EXPERIENCE INTO A MOMENT OF <span className={clsx(classes.purple, classes.emphasis)}>LOVE</span> AND <span className={clsx(classes.purple, classes.emphasis)}>CONNECTION</span>.</div>
                 <div className={clsx(classes.pinkBanner, classes.purple)}>THIS CHALLENGE WILL BE HELD...</div>
                 <div className={clsx(classes.date)}>August 24 - 28, 2020</div>
                 <form name="submit-to-google-sheet"
@@ -514,39 +626,66 @@ export function Squeeze() {
               </div>
             </Grid>
           </Grid>
-          <Grid className={classes.imageContainer}>
+          <Grid className={clsx(classes.maxWidth, classes.imageContainer)}>
             <Box component={Grid} className={classes.imageInnerContainer} item xs={12} display={{ xs: "block", sm: "none" }}>
-              <img src="SqueezeImage.transparent.png" className={classes.image} alt="" tabIndex="0" />
+              <img src="SqueezeImage.3.png" className={classes.image} alt="" tabIndex="0" />
             </Box>            
           </Grid>
         </div>
-        <div className={classes.lifeChangerBox}>
-          <div className={classes.leadIn2}>Imagine yourself working WITH your natural emotional responses - instead of supressing them - to have the energy, desire, and enthusiasm that you NEED to transform your parenting.</div>
-          <div className={classes.title2}>Here Are Three Ways This Jumpstart Will Change Your Life:</div>          
+        <div className={clsx(classes.maxWidth, classes.lifeChangerBox)}>
+          <div className={classes.leadIn2}>Imagine you … feeling balanced, in control, and at peace, no matter what behavior your kids throw at you!</div>
+          <div className={classes.title2}>HERE ARE 3 WAYS THIS CHALLENGE WILL CHANGE YOUR LIFE FOREVER:</div>          
           <Grid container style={{margin: 0, width: '100%',}} justify="space-around">
-            <Grid item xs={12} sm={4}>
-              <div className={classes.subtitle2}>Life Changer #1</div>
-              <div className={clsx(classes.itemText, classes.cyan)}>The <em>ONE Thing You Can Do</em> (in the space of two breaths) to transform frustration and impatience into <em>calm</em> and <em>confidence</em> ... so that you can STOP feeling guilty for snapping or yelling.</div>
+            <Grid item xs={12} md={4} className={classes.marbleTile}>
+              <div className={clsx(classes.purple, classes.subtitle2)}>Life Changer #1</div>
+              <div className={clsx(classes.itemText)}>The ONE THING you need to change to work WITH your anger, instead of against it, so that you respond like your ideal parent.</div>
             </Grid>
-            <Grid item xs={12} sm={4}>
-              <div className={classes.subtitle2}>Life Changer #2</div>
-              <div className={clsx(classes.itemText, classes.cyan)}>The Key Practice to <em>End Emotional Burnout for Good</em>, without trying to rely on willpower or self-care opportunities to fix everything.</div>
+            <Grid item xs={12} md={4} className={classes.marbleTile}>
+              <div className={clsx(classes.purple, classes.subtitle2)}>Life Changer #2</div>
+              <div className={clsx(classes.itemText)}>My simple strategy to get yourself back in the game when your emotions are so strong that you want to give up... letting you achieve that “calm consistency” that all the parenting gurus preach.</div>
             </Grid>
-            <Grid item xs={12} sm={4}>
-              <div className={classes.subtitle2}>Life Changer #3</div>
-              <div className={clsx(classes.itemText, classes.cyan)}>My Specific System to <em>Put You In Complete Emotional Control</em> during the most challenging moments of your day, so that you can stop tiptoeing around your child's responses.</div>
+            <Grid item xs={12} md={4} className={classes.marbleTile}>
+              <div className={clsx(classes.purple, classes.subtitle2)}>Life Changer #3</div>
+              <div className={clsx(classes.itemText)}>My specifically choreographed method to banish mom guilt and spend your time actually enjoying your kids.</div>
             </Grid>
           </Grid>
-          <Button className={classes.bigishInputButton} href="#topBox">
-            <div className={classes.columnHolder}>
-              <div>I'm ready to change!</div>
-              <small className={classes.subText2}>Sign Up Now</small>
-            </div>
+          <Button className={clsx(classes.bigishInputButton, classes.wideish)} href="#topBox">
+              I WANT TO UP-LEVEL MY PARENTING!
           </Button>
+          <div className={classes.afterText2}>JOIN THE FREE CHALLENGE</div>
+        </div>
+        <div className={classes.content}></div>
+
+        <div className={classes.hostBox}>
+          <Grid container className={classes.maxWidth} justify="space-around">
+            <Grid item xs={12} md={7} className={classes.signUp}>
+              <div className={classes.transparentBox}>
+              <Grid className={clsx(classes.rightImageContainer)}>
+                  <Box component={Grid} className={classes.imageInnerContainer} item xs={12} display={{ xs: "block", md: "none" }}>
+                    <img src="hostPicture.png" className={classes.shrinkImage} alt="" tabIndex="0" />
+                  </Box>            
+                </Grid>
+                <div className={clsx(classes.purple, classes.leadIn3)}>ABOUT</div>
+                <div className={clsx(classes.purple, classes.leadIn3)}>YOUR HOST</div>
+                <div className={classes.text3}>Hey, I’m Alison.</div>
+                <div className={classes.text3}>I used to think of myself as a pretty good mom. Then I had three bouts of debilitating prenatal depression.</div>
+                <div className={classes.text3}>After my last baby was born and the depression lifted, I thought that my emotional responses were permanently broken. I found myself alternately yelling at my kids or withdrawing from them to try to keep myself from yelling.</div>
+                <div className={classes.text3}>I wasn’t willing to live like that, so I embarked on a massive search for something - anything - that could help me.</div>
+                <div className={classes.text3}>What I found was completely counterintuitive: the key to being the mom I wanted to be lay in the anger, sadness, and fear I had been attempting to fight!</div>
+                <div className={classes.text3}>I ended up building my own Power Emotions system to take the little-known concepts I uncovered and make them easily accessible to busy moms. The Power Emotions system changed my life, and now it’s helping mom all over transform their experience of motherhood.</div>
+                <Button type="submit" className={classes.bigishInputButton} href="#topBox">I WANT A TRANSFORMATION!</Button>
+                <div className={clsx(classes.afterText3)}>JOIN THE FREE CHALLENGE</div>         
+              </div>
+            </Grid>
+            <Grid item xs={12} md={5} className={classes.imageContainer}>
+              <Box component={Grid} className={classes.imageInnerContainer} item xs={12} display={{ xs: "none", md: "block" }}>
+                <img src="hostPicture.png" className={clsx(classes.image)} alt="" tabIndex="0" />
+              </Box>            
+            </Grid>
+          </Grid>
         </div>
 
-        <div className={classes.testimonialsBox}>
-          <h1>Testimonials</h1>
+        <div className={clsx(classes.maxWidth, classes.testimonialsBox)}>
           <div className={classes.TwoColumns}>
             <div className={classes.column}><img className={classes.testimonial} src="t4.jpg"/></div>
             <div className={classes.column}><img className={classes.testimonial} src="t5.jpg"/></div>
@@ -558,31 +697,11 @@ export function Squeeze() {
             <div className={classes.column}><img className={classes.testimonial} src="t1.jpg"/></div>
             <div className={classes.column}><img className={classes.testimonial} src="t2.jpg"/></div>
           </div>
+          <Button type="submit" className={classes.bigishInputButton} href="#topBox">ARE YOU READY FOR HAPPY MOMMING?</Button>
+          <div className={clsx(classes.afterText3)}>JOIN THE FREE CHALLENGE</div>
         </div>
-
-        <div className={classes.hostBox}>
-          <div className={classes.leadIn3}>About your host:</div>
-          <img src="hostPicture.png" className={classes.hostPicture} />
-          <div className={classes.title3}>Hi, I'm Alison.</div>
-          <div className={classes.subtitle3}>Homeschooling WAHM of five.</div>
-          <div className={classes.text3}>After suffering through three awful bouts of prenatal depression, I was questioning my ability to be a good parent.
-          I had learned all of the positive parenting techniques and tools (and I mean ALL - I read every parenting book at my library), but I couldn't seem
-          to keep my cool to actually use them anymore. I felt out of control and vacillated between snapping at my kids, and burying myself on my phone to
-          avoid snapping at them. I felt guilty all the time.</div>
-          <div className={classes.text3}>Then I developed the Power Emotion system. Suddenly, I could respond to my kids according to my values, no matter 
-          how challenging their behavior was. I felt deeply connected with my kids, ESPECIALLY when we experienced emotional upheaval. I truly enjoyed time
-          with them, instead of being drained by it.</div>
-          <div className={classes.text3}>If you're ready for the same transformation, now is the time! Join me for this FREE five-day jumpstart. You'll walk
-          away with the skills to handle the emotional upheavals of parenting (the kids' and your own) with energy, confidence, and love.</div>          
-          <Button className={classes.bigishInputButton} href="#topBox">
-            <div className={classes.columnHolder}>
-              <div>Are you ready?</div>
-              <small className={classes.subText2}>Sign Up Now</small>
-            </div>
-          </Button>
-        </div>
-        <div className={classes.content}></div>
-        <div className={classes.footer}><b>AlisonPBrown.com</b><span> - All Rights Reserved - </span><span><Link className={classes.link} href="/privacy-policy">Privacy Policy</Link></span></div>
+        <div className={clsx(classes.maxWidth, classes.content)}>Disclaimer: This program is entirely free and will give you actionable steps that you can use to change your parenting. At the end of the free program, a larger program will be offered for purchase.</div>
+        <div className={classes.footer}><span>AlisonPBrown.com</span><span> - All Rights Reserved - </span><span><Link className={classes.link} href="/privacy-policy">Privacy Policy</Link></span></div>
       </div>
     </div>
   );
