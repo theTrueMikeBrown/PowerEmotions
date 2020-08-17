@@ -1,10 +1,9 @@
 import React from 'react';
-import ThankYou from './ThankYou';
-import {Results} from './Results';
-import {Squeeze} from './Squeeze';
-import {Sales} from './Sales';
-import {Quiz} from './Quiz';
-import {Funnel} from './Funnel';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { Results } from './Results';
+import { Sales } from './Sales';
+import { Quiz } from './Quiz';
+import { Funnel } from './Funnel';
 import PrivacyPolicy from './PrivacyPolicy';
 import './App.css';
 import {
@@ -14,15 +13,24 @@ import {
   Redirect
 } from "react-router-dom";
 
+// render={() => { window.location.href = "quiz.big.html" }} />
+// render={() => { window.location.href = "quizForm.big.html" }} />
+
 export default function App() {
-  return (
+  const matches = useMediaQuery('(min-width:800px)');
+  
+  return (matches ?
     <Router>
       <Switch>
-        <Route path="/frustration-free-jumpstart">
-          <Squeeze />
+        <Route path="/frustration-free-jumpstart"
+          render={() => { window.location.href = "invite.big.html" }} />
+        <Route path="/thank-you"
+          render={() => { window.location.href = "thankYou.big.html" }} />
+        <Route path="/before">
+          <Quiz />
         </Route>
-        <Route path="/thank-you">
-          <ThankYou />
+        <Route path="/quiz">
+          <Quiz />
         </Route>
         <Route path="/funnel">
           <Funnel />
@@ -30,8 +38,41 @@ export default function App() {
         <Route path="/privacy-policy">
           <PrivacyPolicy />
         </Route>
+        <Route path="/sales">
+          <Sales />
+        </Route>
+        <Route path="/transformingmotherhood">
+          <Sales />
+        </Route>
+        <Route path="/transforming-motherhood">
+          <Sales />
+        </Route>
+        <Route path="/results/:id">
+          <Results />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+    :
+    <Router>
+      <Switch>
+        <Route path="/frustration-free-jumpstart"
+          render={() => { window.location.href = "invite.small.html" }} />
+        <Route path="/thank-you"
+          render={() => { window.location.href = "thankYou.small.html" }} />
+        <Route path="/before">
+          <Quiz />
+        </Route>
         <Route path="/quiz">
           <Quiz />
+        </Route>
+        <Route path="/funnel">
+          <Funnel />
+        </Route>
+        <Route path="/privacy-policy">
+          <PrivacyPolicy />
         </Route>
         <Route path="/sales">
           <Sales />

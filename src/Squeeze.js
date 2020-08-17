@@ -609,7 +609,7 @@ export function Squeeze() {
                 <div className={clsx(classes.date)}>August 24 - 28, 2020</div>
                 <form name="submit-to-google-sheet"
                     onSubmit={(e) => {
-                      const scriptURL = 'https://script.google.com/macros/s/AKfycbzUlcRsgLhNmkbiHYEGAN50lWuH96LpPzHewcSYy0JY3cv1MVyR/exec'                                       
+                      const scriptURL = 'https://script.google.com/macros/s/AKfycbzUlcRsgLhNmkbiHYEGAN50lWuH96LpPzHewcSYy0JY3cv1MVyR/exec'
                       const form = document.forms['submit-to-google-sheet']
                       e.preventDefault()
                         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
