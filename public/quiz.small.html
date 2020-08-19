@@ -7157,7 +7157,7 @@ Imaging with any questions regarding Web fonts:  http://webfonts.fonts.com
                                         <div id="comp-kds2zol7inlineContent-gridContainer" data-mesh-internal="true">
                                           <div data-is-responsive="false" style="top:;bottom:;left:;right:;position:"
                                             class="style-kds2zomq" data-state="mobileView" id="comp-kds2zomd">
-                                            <form class="style-kds2zomqform" id="comp-kds2zomdform">
+                                            <form class="style-kds2zomqform" id="person-info" name="person-info">
                                               <style id="comp-kds2zomd-mesh-styles">
                                                 #comp-kds2zomdform {
                                                   height: auto;
@@ -7252,7 +7252,7 @@ Imaging with any questions regarding Web fonts:  http://webfonts.fonts.com
                                                       style="font-size:18px;padding-left:12px;cursor:pointer" value=""
                                                       required="" placeholder="Your First Name Here..." maxlength="100"
                                                       class="has-custom-focus style-kds2zomyinput"
-                                                      id="comp-kds2zomsinput">
+                                                      id="name" name="name">
                                                     <p style="display:none" id="comp-kds2zomsmessage"
                                                       class="style-kds2zomymessage"></p>
                                                   </div>
@@ -7266,7 +7266,8 @@ Imaging with any questions regarding Web fonts:  http://webfonts.fonts.com
                                                       required="" placeholder="Your email address here..."
                                                       pattern="^.+@.+\.[a-zA-Z]{2,63}$" maxlength="250"
                                                       class="has-custom-focus style-kds2zomyinput"
-                                                      id="comp-kds2zomzinput">
+                                                      id="email"
+                                                    name="email">
                                                     <p style="display:none" id="comp-kds2zomzmessage"
                                                       class="style-kds2zomymessage"></p>
                                                   </div>
@@ -7282,6 +7283,24 @@ Imaging with any questions regarding Web fonts:  http://webfonts.fonts.com
                                                 </div>
                                               </div>
                                             </form>
+                                          <script>
+                                            window.onload = function () {
+                                              document.getElementById("person-info").onsubmit = function (e) {
+                                                e.preventDefault()
+                                                var name = document.getElementById("name").value
+                                                var email = document.getElementById("email").value
+                                                if (name && email) {
+                                                  localStorage["name"] = name;
+                                                  localStorage["email"] = email;
+                                                  window.location.href = "/quizForm.small.html"
+                                                }
+                                                else {
+                                                  error = "Please enter both a name and an email address.";
+                                                  document.getElementById("errorid").innerHTML = error;
+                                                }
+                                              }
+                                            }
+                                          </script>
                                           </div>
                                         </div>
                                       </div>
